@@ -27,7 +27,7 @@ public with sharing class UniversalMocker implements System.StubProvider {
   private Integer forInvocationNumber = 0;
   private Integer callCountToMock = null;
 
-  private String KEY_DELIMITER = '||';
+  private String KEY_DELIMITER = '||'; 
 
   //Map for storing mutators
   Map<String, List<Mutator>> mutatorMap = new Map<String, List<Mutator>>();
