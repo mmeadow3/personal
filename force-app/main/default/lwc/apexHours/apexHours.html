@@ -1,0 +1,35 @@
+<template>
+    <article class="slds-card">
+        <div class="slds-card__header slds-grid">
+          <header class="slds-media slds-media_center slds-has-flexi-truncate">
+            <div class="slds-media__figure">
+                <span class="slds-avatar slds-avatar_circle">
+                    <span class="slds-icon_container slds-icon-standard-user" title="Description of icon when needed">
+                      <svg class="slds-icon" aria-hidden="true">
+                        <use xlink:href="/apexpages/slds/latest/assets/icons/standard-sprite/svg/symbols.svg#user"></use>
+                      </svg>
+                      <span class="slds-assistive-text">Description of icon when needed</span>
+                    </span>
+                  </span>
+            </div>
+            <div class="slds-media__body">
+              <h2 class="slds-card__header-title">
+                <a href="https://developer.salesforce.com/docs/component-library/bundle" target="_blank" class="slds-card__header-link slds-truncate" title="Accounts">
+                  <span>{upperCase}</span>
+                </a>
+              </h2>
+            </div>
+          </header>
+        </div>
+      </article>
+      <lightning-button label="Send data to Account List" onclick={sendLMS}></lightning-button>
+      <br/>
+      <!-- use this site for components  https://developer.salesforce.com/docs/component-library/bundle/lightning-input/example-->
+      <lightning-input type="checkbox" label="Condionally Render" onchange={handleCheck}></lightning-input>
+      <template lwc:if={showData}>
+        Hello I am visible
+      </template>
+      <template lwc:else> 
+        This is false 
+    </template>
+</template>

@@ -1,0 +1,79 @@
+<template>
+       <lightning-card title="LWC Calculator">
+        <lightning-input lwc:ref="calcInput" type="string" name="calc" value={value}></lightning-input>
+      <div class="slds-grid slds-p-left_xx-small slds-p-right_medium">
+            <div class="slds-col slds-size_1-of-4 slds-border_top slds-border_bottom slds-border_left slds-border_right slds-button" data-value="7" onclick={handleNumber} data-test="test">
+                <span class="slds-align_absolute-center" data-value="7">7</span>   <!-- Need Data Value here in case we click the span instead of parent div-->
+            </div>
+            <div class="slds-col slds-size_1-of-4 slds-border_top slds-border_bottom slds-border_left slds-border_right slds-button" data-value="8" onclick={handleNumber}>
+                <span class="slds-align_absolute-center" data-value="8">8</span>
+            </div>
+            <div class="slds-col slds-size_1-of-4 slds-border_top slds-border_bottom slds-border_left slds-border_right slds-button" data-value="9" onclick={handleNumber}>
+                <span class="slds-align_absolute-center" data-value="9">9</span>
+            </div>
+            <div class="slds-col slds-size_1-of-4 slds-border_top slds-border_bottom slds-border_left slds-border_right slds-button" onclick={handleDivide}>
+                <span class="slds-align_absolute-center">/</span>
+            </div>
+          </div>
+          <div class="slds-grid slds-p-left_xx-small slds-p-right_medium">
+            <div class="slds-col slds-size_1-of-4 slds-border_top slds-border_bottom slds-border_left slds-border_right slds-button" data-value="4" onclick={handleNumber}>
+                <span class="slds-align_absolute-center" data-value="4">4</span>
+            </div>
+            <div class="slds-col slds-size_1-of-4 slds-border_top slds-border_bottom slds-border_left slds-border_right slds-button" data-value="5" onclick={handleNumber}>
+                <span class="slds-align_absolute-center" data-value="5">5</span>
+            </div>
+            <div class="slds-col slds-size_1-of-4 slds-border_top slds-border_bottom slds-border_left slds-border_right slds-button" data-value="6" onclick={handleNumber}>
+                <span class="slds-align_absolute-center" data-value="6">6</span>
+            </div>
+            <div class="slds-col slds-size_1-of-4 slds-border_top slds-border_bottom slds-border_left slds-border_right slds-button" onclick={handleMultiply}>
+                <span class="slds-align_absolute-center">X</span>
+            </div>
+          </div>
+          <div class="slds-grid slds-p-left_xx-small slds-p-right_medium">
+            <div class="slds-col slds-size_1-of-4 slds-border_top slds-border_bottom slds-border_left slds-border_right slds-button" data-value="1" onclick={handleNumber}>
+                <span class="slds-align_absolute-center" data-value="1">1</span>
+            </div>
+            <div class="slds-col slds-size_1-of-4 slds-border_top slds-border_bottom slds-border_left slds-border_right slds-button" data-value="2" onclick={handleNumber}>
+                <span class="slds-align_absolute-center" data-value="2">2</span>
+            </div>
+            <div class="slds-col slds-size_1-of-4 slds-border_top slds-border_bottom slds-border_left slds-border_right slds-button" data-value="3" onclick={handleNumber}>
+                <span class="slds-align_absolute-center" data-value="3">3</span>
+            </div>
+            <div class="slds-col slds-size_1-of-4 slds-border_top slds-border_bottom slds-border_left slds-border_right slds-button" onclick={handleSubtract}>
+                <span class="slds-align_absolute-center">-</span>
+            </div>
+          </div>
+          <div class="slds-grid slds-p-left_xx-small slds-p-right_medium">
+            <div class="slds-col slds-size_1-of-4 slds-border_top slds-border_bottom slds-border_left slds-border_right slds-button" data-value="0" onclick={handleNumber}>
+                <span class="slds-align_absolute-center" data-value="0">0</span>
+            </div>
+            <div class="slds-col slds-size_1-of-4 slds-border_top slds-border_bottom slds-border_left slds-border_right slds-button" data-value="." onclick={handleDecimal}>
+                <span class="slds-align_absolute-center" data-value=".">.</span>
+            </div>
+            <div class="slds-col slds-size_1-of-4 slds-border_top slds-border_bottom slds-border_left slds-border_right slds-button" onclick={handleEquals}>
+                <span class="slds-align_absolute-center">=</span>
+            </div>
+            <div class="slds-col slds-size_1-of-4 slds-border_top slds-border_bottom slds-border_left slds-border_right slds-button" onclick={handlePlus}>
+                <span class="slds-align_absolute-center">+</span>
+            </div>
+          </div>
+          <div class="slds-grid slds-p-left_xx-small slds-p-right_medium">
+            <div class="slds-col slds-size_1-of-2 slds-border_top slds-border_bottom slds-border_left slds-border_right slds-button" onclick={handleClear}>
+                <span class="slds-align_absolute-center">Clear</span>
+            </div>
+            <div class="slds-col slds-size_1-of-2 slds-border_top slds-border_bottom slds-border_left slds-border_right slds-button" onclick={addtoField}>
+                <span class="slds-align_absolute-center">Add to {fieldName}</span>
+            </div>
+          </div>
+          <div class="slds-grid slds-p-left_xx-small slds-p-right_medium" if:true={objectInfoResults.data}>
+            <lightning-combobox
+            name="Field"
+            value={fieldValue}
+            placeholder="Select Field"
+            options={options}
+            onchange={handleSelect} >
+            </lightning-combobox>
+          </div>
+        <p slot="footer"></p>
+        </lightning-card>
+</template>

@@ -1,0 +1,18 @@
+<template>
+   <div> 
+       <lightning-card title={header}>
+         <p class="slds-p-horizontal_small">
+            The Builder pattern is a creational design pattern that allows you to construct complex objects step by step, separating the construction process from the final object itself. 
+            It’s useful when creating objects that require several configurations or options.
+         </p>
+       </lightning-card>
+   </div>
+   <lightning-combobox
+        name="progress"
+        label="Design Pattern Category"
+        value={value}
+        options={options}
+        onchange={handleChange}
+        disabled={isDisabled}> 
+    </lightning-combobox>
+</template>

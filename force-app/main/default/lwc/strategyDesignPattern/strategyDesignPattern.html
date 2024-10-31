@@ -1,0 +1,27 @@
+<template>
+    <div class="slds-box slds-theme_default">
+        <div class="slds-text-heading_medium">
+            {header}
+            <br/>
+        </div>
+    </div>
+    <hr>
+    <div class="slds-theme_default">
+        The Strategy pattern allows developers to encapsulate interchangeable algorithms or behaviors and select them at runtime. 
+        <br>
+        In the context of Salesforce development, this pattern is often used to handle various tasks, such as payment processing, discount calculations, or integration methods, by defining separate strategy classes for each specific behavior.         
+        <br>
+        This is the open/close principle AND coding to an interface not an implementation
+        </div>
+
+        <lightning-combobox
+        name="progress"
+        label="Design Pattern Category"
+        value={value}
+        options={options}
+        onchange={handleChange}
+        disabled={isDisabled}> 
+    </lightning-combobox>
+
+    <h1>Apex Classes: DiscountCalculator</h1>
+</template>

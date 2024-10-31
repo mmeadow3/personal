@@ -1,0 +1,10 @@
+<template>
+    <lightning-card>
+<lightning-input type="text" onchange={search} value={seachKey}></lightning-input>
+        <template if:true={accounts}>
+            <template for:each={accounts} for:item="acc">
+                {acc.Name}
+            </template>
+        </template>
+    </lightning-card>
+</template>

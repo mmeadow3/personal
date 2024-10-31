@@ -1,0 +1,25 @@
+<template>
+    <div class="slds-theme_default">
+        <ul class="slds-has-dividers_top-space">
+            <li class="slds-item">Configuration Settings: The Singleton pattern is often used to manage configuration settings for Salesforce applications. For example, you might store API integration keys, authentication credentials, or custom application settings in a Singleton instance. This ensures that configuration data is loaded and available only once throughout the application’s lifecycle, preventing unnecessary redundant data access.</li>
+            <li class="slds-item">Governor Limits Management: Singleton can be employed to centralize and manage governor limit tracking, helping developers stay within these limits while executing complex operations.</li>
+            <li class="slds-item">Custom Logging: Implementing custom logging in Salesforce is a common requirement. The Singleton pattern allows you to create a single logging instance that records and manages logs across your application.</li>
+            <li class="slds-item">Global Utility Functions: Singleton can encapsulate global utility functions that are shared across various components of your application. These functions might include data formatting, encryption, or other common tasks.</li>
+        </ul>
+    </div>
+<br>
+<br>
+    <div class="slds-theme_default">
+        <ul class="slds-has-dividers_top-space">
+            <li class="slds-item">Apex runs in a stateless environment (where static variables don't persist across transactions), Singleton is typically used within a single transaction.</li>
+            <li class="slds-item">In Salesforce, the Singleton pattern works within the scope of a single transaction. Static variables are reset after a transaction ends, so this pattern is useful for managing state only within a single execution context.</li>
+        </ul>
+    </div>
+    <br>
+    <br>
+    <div class="slds-theme_default">
+        An example: If we have a trigger getting variables from a class that is firing on before update, before innsert, then those 2 contexts are both calling the class - resulting in it being called 2x
+        <br>
+        As code bases grow, the same class could be called multiple (10x times) -- This will lead to alot of errors
+    </div>
+</template>

@@ -1,0 +1,5 @@
+.tokenExample {
+    background-color: var(--lwc-colorBackground);
+    color: var(--lwc-colorTextDefault);
+    margin: var(--lwc-spacingMedium);
+   }

@@ -1,0 +1,22 @@
+<template>
+    <div class="slds-box slds-theme_default">
+        <div class="slds-text-heading_medium">
+            {header}
+            <br/>
+        </div>
+    </div>
+    <hr>
+    <div class="slds-theme_default">
+        The Open/Closed Principle encourages developers to design classes in a way that allows extension without modifying existing code.
+        <br>
+        In Apex, we can achieve this through <b>interfaces</b> and <b>abstract</b> classes.
+    </div>
+    <div class="slds-theme_default">
+        Example: If we have a class handling pricing and we want to add different types of pricing <b>without modifying the existing code</b>
+        <br>
+        We would make an interface so that we program new classes to that and not to an implementation.
+    </div>
+
+    Example from Open Close Principle 
+    {message}
+</template>

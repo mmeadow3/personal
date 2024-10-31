@@ -1,0 +1,10 @@
+<template>
+    <lightning-card>
+        <lightning-button label="click for accounts" onclick={handleClick}></lightning-button>
+        <template if:true={accounts}>
+            <template for:each={accounts} for:item="acc">
+                {acc.Name}
+            </template>
+        </template>
+    </lightning-card>
+</template>

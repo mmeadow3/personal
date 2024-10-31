@@ -1,0 +1,13 @@
+<template>
+    <lightning-button label="Click for SRP" title="callSRPclass" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+    <lightning-combobox
+        name="progress"
+        label="Status"
+        value={value}
+        placeholder="Select Position"
+        options={options}
+        onchange={handleChange} >
+    </lightning-combobox>
+
+    <p>Selected value is: {value}</p>
+</template>

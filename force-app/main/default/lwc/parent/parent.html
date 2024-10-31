@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Parent Component" >
+        <!-- Class here is an example of using SLDS tokens - check CSS file -->
+        <h1 class="tokenExample">This is a better way to style: use the SLDS token system: see CSS file</h1>
+        <lightning-input type="number" value={percentage} onchange={handleOnChange} class="tokenExample"></lightning-input>
+        <c-child1 percentage={percentage}></c-child1>
+
+        <lightning-button label="refresh" onclick={handleClick}></lightning-button>
+        <c-child2></c-child2>
+
+        <c-child3 onincreasecount={handleEventChange}></c-child3>
+        Count of clicks: {count}
+
+        <c-child4 onincrease={handleEventChange4}></c-child4>
+        {message}
+    </lightning-card>
+</template>

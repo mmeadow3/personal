@@ -1,0 +1,16 @@
+<template>
+    
+    <lightning-card>
+<template lwc:if={data}>
+        <lightning-datatable
+            key-field='Id'
+            data={data}
+            columns={columns}
+            onsave={handleSave}
+            draft-values={draftValues}
+            hide-checkbox-column
+        ></lightning-datatable>
+    </template>
+    <template lwc:if={error}>{error}</template>
+    </lightning-card>
+</template>

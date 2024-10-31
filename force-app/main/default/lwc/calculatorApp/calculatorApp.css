@@ -1,0 +1,7 @@
+:host .circle {
+    --slds-c-button-radius-border: 50%;
+}
+
+.border {
+   border: solid;
+}

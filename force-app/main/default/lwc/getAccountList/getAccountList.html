@@ -1,0 +1,28 @@
+<template>
+    <a href="https://www.lightningdesignsystem.com/icons/" target="_blank">List of Custom Icons</a> <br />
+            <lightning-icon icon-name="action:preview" alternative-text="Preview" title="Preview"></lightning-icon>
+            <lightning-icon icon-name="doctype:xml" alternative-text="XML file" title="XML"></lightning-icon>
+            <lightning-icon icon-name="standard:email" alternative-text="Email" title="Email"></lightning-icon>
+            <lightning-icon icon-name="utility:image" alternative-text="Utility image" title="Image"></lightning-icon>
+            <lightning-icon icon-name="custom:custom11" title="custom11"></lightning-icon>
+            <!-- All the SVG file does is change the apperance of the component when you try to add it to the page layout -->
+    <!-- end Icons  -->
+    <template for:each={accounts.data} for:item="acc"> 
+        <lightning-layout key={acc.Id}  class="slds-p-top_x-small">
+            <lightning-layout-item>
+                <!-- list of types of Icons from Link Above -->
+                <!-- <lightning-card title="Account" icon-name="custom:custom14"> -->
+                <!-- <lightning-card title="Account" icon-name="standard:account">  -->
+                <!-- <lightning-card title="Account" icon-name="doctype:html">  -->
+                <!-- <lightning-card title="Account" icon-name="utility:activity">  -->
+                <lightning-card title="Account" icon-name="action:bug"> 
+                    <p  class="colorClass"> 
+                        Name: {acc.Name} <br/>
+                        Phone : {acc.Phone}
+                        {test}
+                    </p>
+                </lightning-card>
+            </lightning-layout-item>
+        </lightning-layout>
+    </template>
+</template>
