@@ -23,7 +23,7 @@ jobs:
           command: . build/testecho.sh
       - run:
           name: Install Dependencies
-          command: . build/install_Salesforce_Cli.sh
+          command: . build/install_salesforce_cli.sh
       - run:
           name: Run tests
           command: npm test --passWithNoTests
