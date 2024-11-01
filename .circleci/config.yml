@@ -9,9 +9,18 @@ jobs:
     executor: node/default
     steps:
       - checkout
+      #added this just to speed up deployments, so it doesnt have to run everytime
+      #store the package.json in memory
+      - restore_cache:
+          keys:
+            - dependency-cache-{{ checksum "package.json" }}
+            - dependency-cache-
       - node/install-packages:
           cache-path: ~/project/node_modules
           override-ci-command: npm install
+      - run:
+          name: Test out New Shell File
+          command: build/testecho.sh
       - run:
           name: Run tests
           command: npm test --passWithNoTests
