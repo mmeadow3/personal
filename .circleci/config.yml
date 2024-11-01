@@ -4,7 +4,7 @@ version: 2.1
 orbs:
   node: circleci/node@5
 jobs:
-  call-this-bad-boy-test:
+  call-this-bad-boy-test: #we can call this anything as long as it is references in the build-in-test
     # Install node dependencies and run tests
     executor: node/default
     steps:
@@ -18,7 +18,7 @@ jobs:
   deploy:
     # This is an example deploy job, not actually used by the workflow
     docker:
-      - image: cimg/base:stable
+      - image: circleci/node:latest
     steps:
       # Replace this with steps to deploy to users
       - run:
