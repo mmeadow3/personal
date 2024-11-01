@@ -24,6 +24,13 @@ jobs:
       - run:
           name: Install Dat Salesforce Cli  !!!!!
           command: . build/testinstall.sh
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - run:
+          name: Log into our Sandbox Org
+          command: . build/login_to_sandbox.sh
       - run:
           name: Run tests
           command: npm test --passWithNoTests
