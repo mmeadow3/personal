@@ -1,20 +1,18 @@
 import { updateRecord } from "lightning/uiRecordApi";
 
 const addNumbertoField = (id, fieldToUpdate, value) => {
+  const fields = {};
 
-    const fields = {};
+  fields.Id = id;
+  fields[fieldToUpdate] = value;
 
-    fields.Id = id;
-    fields[fieldToUpdate] = value;
+  const recordInput = {
+    fields: fields
+  };
 
-    const recordInput = {
-      fields: fields
-    };
+  updateRecord(recordInput).then((record) => {
+    console.log(record);
+  });
+};
 
-    updateRecord(recordInput).then((record) => {
-      console.log(record);
-    });
-}
-
-
-export {addNumbertoField};
+export { addNumbertoField };
