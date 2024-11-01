@@ -20,7 +20,7 @@ jobs:
           override-ci-command: npm install
       - run:
           name: Test out New Shell File
-          command: build/testecho.sh
+          command: . build/testecho.sh
       - run:
           name: Run tests
           command: npm test --passWithNoTests
