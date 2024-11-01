@@ -4,7 +4,7 @@ version: 2.1
 orbs:
   node: circleci/node@5
 jobs:
-  run-this-bad-boy:
+  call-this-bad-boy-test:
     # Install node dependencies and run tests
     executor: node/default
     steps:
@@ -27,7 +27,7 @@ jobs:
 workflows:
   build-and-test:
     jobs:
-      - test-node
+      - call-this-bad-boy-test
     # - deploy:
     #     requires:
     #       - test-node
