@@ -3,4 +3,4 @@
 
 
 # Append "Hello" with the current date and time to the log file
-echo "$(date): Hello"
+echo "<<<<<<<<<<<   $(date): Hello From CircleCI >>>>>>>>>>>"
