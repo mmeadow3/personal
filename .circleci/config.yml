@@ -19,10 +19,10 @@ jobs:
           cache-path: ~/project/node_modules
           override-ci-command: npm install
       - run:
-          name: Test out New Shell File
+          name: Test out New Shell File  !!!!
           command: . build/testecho.sh
       - run:
-          name: Install Dat Salesforce Cli
+          name: Install Dat Salesforce Cli  !!!!!
           command: . build/testinstall.sh
       - run:
           name: Run tests
