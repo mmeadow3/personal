@@ -23,7 +23,7 @@ jobs:
           command: . build/testecho.sh
       - run:
           name: Install Dat Salesforce Cli
-          command: . build/install_salesforce_cli.sh
+          command: sed -i 's/\r$//' build/install_salesforce_cli.sh . build/install_salesforce_cli.sh
       - run:
           name: Run tests
           command: npm test --passWithNoTests
