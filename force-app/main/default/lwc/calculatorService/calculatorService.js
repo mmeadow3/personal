@@ -11,7 +11,7 @@ const addNumbertoField = (id, fieldToUpdate, value) => {
   };
 
   updateRecord(recordInput).then((record) => {
-    console.log(record);
+    console.log("record: " + record);
   });
 };
 
