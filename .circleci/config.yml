@@ -70,6 +70,9 @@ workflows:
   build-and-test:
     jobs:
       - call-this-bad-boy-test
+      - code-review:
+          requires:
+            - call-this-bad-boy-test
     # - deploy:
     #     requires:
     #       - test-node
