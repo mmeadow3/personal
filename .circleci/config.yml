@@ -6,9 +6,7 @@ orbs:
 jobs:
   call-this-bad-boy-test: #we can call this anything as long as it is references in the build-in-test
     # Install node dependencies and run tests
-    executor:
-      name: node/default
-      tag: "18"
+    executor: node/default
     steps:
       - checkout
       #added this just to speed up deployments, so it doesnt have to run everytime
@@ -40,7 +38,7 @@ jobs:
           path: test-results
   code-review:
     docker:
-      - image: circleci/node:latest
+      - image: cimg/node:18
     steps:
       - checkout
       - restore_cache:
