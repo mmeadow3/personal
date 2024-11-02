@@ -38,7 +38,7 @@ jobs:
           path: test-results
   code-review:
     docker:
-      - image: cimg/node:latest
+      - image: cimg/node:15.0.1
     steps:
       - checkout
       - restore_cache:
