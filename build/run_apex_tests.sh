@@ -1,6 +1,6 @@
 echo "Deploying source to org"
 ## old version:    sfdx force:source:deploy --sourcepath force-app --targetusername mikesPeronalOrg
-sf project deploy start --metadata-dir force-app/manifest/package.xml --target-org mikesPeronalOrg
+sf project deploy start --metadata-dir manifest/package.xml --target-org mikesPeronalOrg
 
 
 echo "Testing code in org"
