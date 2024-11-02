@@ -1,5 +1,8 @@
 echo "Deploying source to org"
-sfdx force:source:deploy --sourcepath force-app --targetusername mikesPeronalOrg
+## old version:    sfdx force:source:deploy --sourcepath force-app --targetusername mikesPeronalOrg
+sf project deploy start --source-path force-app --target-org mikesPeronalOrg
+
 
 echo "Testing code in org"
-sfdx force:apex:test:run --testlevel RunLocalTests --outputdir test-results --resultformat tap --targetusername mikesPeronalOrg
+# old sfdx cli:    sfdx force:apex:test:run --testlevel RunLocalTests --outputdir test-results --resultformat tap --targetusername mikesPeronalOrg
+sf apex run test --test-level RunLocalTests --output-dir test-results --result-format tap --target-org mikesPeronalOrg
