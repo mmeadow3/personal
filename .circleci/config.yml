@@ -38,9 +38,10 @@ jobs:
           path: test-results
   code-review:
     docker:
-      - image: cimg/node:18
+      - image: circleci/node:18
     steps:
       - checkout
+      - run: node -v # Check Node.js version to verify
       - restore_cache:
           keys:
             - dependency-cache-{{ checksum "package.json" }}
