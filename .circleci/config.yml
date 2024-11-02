@@ -39,24 +39,24 @@ jobs:
   code-review:
     docker:
       - image: circleci/node:latest
-        steps:
-          - checkout
-          - restore_cache:
-              keys:
-                - dependency-cache-{{ checksum "package.json" }}
-                - dependency-cache-
-          - run:
-              name: Install Dependencies
-              command: . build/testinstall.sh
-          - save_cache:
-              key: dependency-cache-{{ checksum "package.json" }}
-              paths:
-                - node_modules
-          - run:
-              name: SFDX Scanner Analysis
-              command: . build/run_sfdx_scanner.sh
-          - store_artifacts:
-              path: sfdxScannerAnalysis.csv
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - dependency-cache-{{ checksum "package.json" }}
+            - dependency-cache-
+      - run:
+          name: Install Dependencies
+          command: . build/testinstall.sh
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - run:
+          name: SFDX Scanner Analysis
+          command: . build/run_sfdx_scanner.sh
+      - store_artifacts:
+          path: sfdxScannerAnalysis.csv
   deploy:
     # This is an example deploy job, not actually used by the workflow
     docker:
@@ -67,7 +67,7 @@ jobs:
           name: deploy
           command: "#e.g. ./deploy.sh"
 workflows:
-  build-and-test:
+  run-this-beast:
     jobs:
       - call-this-bad-boy-test
       - code-review:
