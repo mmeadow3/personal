@@ -1,3 +1,7 @@
+echo "Trying to force this to a new version of nodejs"
+sudo nvm install 18
+sudo nvm use 18
+
 echo "Installing JDK"
 sudo apt-get update
 sudo apt-get install openjdk-11-jdk
