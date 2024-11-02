@@ -6,7 +6,7 @@ orbs:
 jobs:
   call-this-bad-boy-test: #we can call this anything as long as it is references in the build-in-test
     # Install node dependencies and run tests
-    executor: node/default
+    executor: node/latest
     steps:
       - checkout
       #added this just to speed up deployments, so it doesnt have to run everytime
