@@ -7,11 +7,10 @@ sf project convert mdapi --root-dir force-app --output-dir deploy_code
 
 echo "Logging into Salesforce Org"
 mkdir keys
-echo $CERT_KEY | base64 -di > keys/server.key
+echo $SANDBOX_CERT_KEY | base64 -di > keys/server.key
 
-
+#You can authorize a scratch org using the same consumer key and private key file that you used to authorize its associated Dev Hub org.
 echo "Authenticating org"
-##sf org login jwt --client-id $SANDBOX_APP_KEY --jwt-key-file keys/server.key  --username test-sjnuadalsoqa@example.com --alias MyScratchOrg
 sf login org jwt --client-id $SANDBOX_APP_KEY --jwt-key-file keys/server.key --username test-sjnuadalsoqa@example.com --alias MyScratchOrg
 
 
