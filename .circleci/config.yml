@@ -38,7 +38,7 @@ jobs:
           path: test-results
   code-review:
     docker:
-      - image: cimg/node:20.5.0
+      - image: cimg/node:lts
     steps:
       - checkout
       - restore_cache:
@@ -58,7 +58,6 @@ jobs:
       - store_artifacts:
           path: sfdxScannerAnalysis.csv
   deploy-code-to-scratch:
-    # This is an example deploy job, not actually used by the workflow
     docker:
       - image: cimg/node:lts
     steps:
@@ -74,16 +73,16 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - node_modules
-      - run:
-          name: Deploy to Org
-          command: . build/deploy_code.sh
+      # - run:
+      #     name: Deploy to Org
+      #     command: . build/deploy_code.sh
 workflows:
   run-this-beast:
     jobs:
       - call-this-bad-boy-test
-      ##   - code-review:
-      ##      requires:
-      ##       - call-this-bad-boy-test
-      - deploy-code-to-scratch:
+      - code-review:
           requires:
             - call-this-bad-boy-test
+      #- deploy-code-to-scratch:
+      #    requires:
+      #     - call-this-bad-boy-test
