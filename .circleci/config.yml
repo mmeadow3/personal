@@ -58,6 +58,7 @@ jobs:
           command: . build/run_sfdx_scanner.sh
       - store_artifacts:
           path: sfdxScannerAnalysis.csv
+          destination: scannerRestults
   deploy-code-to-scratch:
     docker:
       - image: cimg/node:lts
@@ -81,9 +82,9 @@ workflows:
   run-this-beast:
     jobs:
       - call-this-bad-boy-test
-      #- code-review:
-      #    requires:
-      #     - call-this-bad-boy-test
+      - code-review:
+          requires:
+            - call-this-bad-boy-test
       #- deploy-code-to-scratch:
       #    requires:
       #     - call-this-bad-boy-test
