@@ -5,6 +5,9 @@ echo "Coverting source to metadata format"
 sf project convert mdapi --root-dir force-app --output-dir deploy_code
 
 
+echo "Authenticating org"
+sf org login jwt --client-id $SANDBOX_APP_KEY --jwt-key-file keys/server.key  --username test-sjnuadalsoqa@example.com --alias MyScratchOrg
+
 echo "Deploying code to org"
 ##sfdx force:mdapi:deploy -u mikesPeronalOrg -d deploy_code/ -w -1 -l RunLocalTests
 ##sf project deploy start --target-org mikesPeronalOrg --deploy-dir deploy_code/ --wait -1 --test-level RunLocalTests
@@ -13,3 +16,5 @@ echo "Deploying code to org"
 
 #deploy to scratch org
 sf project deploy start --target-org MyScratchOrg --source-dir force-app
+
+##then try to deploy test data
