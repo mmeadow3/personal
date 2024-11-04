@@ -5,18 +5,15 @@ echo "Coverting source to metadata format"
 sf project convert mdapi --root-dir force-app --output-dir deploy_code
 
 
-echo "Logging into Salesforce Org"
-mkdir keys
-echo $SANDBOX_CERT_KEY | base64 -di > keys/server.key
+# Create a new scratch org
 
-#You can authorize a scratch org using the same consumer key and private key file that you used to authorize its associated Dev Hub org.
-echo "Authenticating org"
-sf login org jwt --client-id $SANDBOX_APP_KEY --jwt-key-file keys/server.key --username test-sjnuadalsoqa@example.com --alias MyScratchOrg 
+sfdx force:org:create -f config/project-scratch-def.json  
 
 
-echo "Deploying code to org"
-##sfdx force:mdapi:deploy -u mikesPeronalOrg -d deploy_code/ -w -1 -l RunLocalTests
-##sf project deploy start --target-org mikesPeronalOrg --deploy-dir deploy_code/ --wait -1 --test-level RunLocalTests
+
+# Authenticate to the newly created scratch org
+
+sfdx force:auth:web:login -a MyScratchOrg
 
 
 
