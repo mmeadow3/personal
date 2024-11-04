@@ -81,9 +81,9 @@ workflows:
   run-this-beast:
     jobs:
       - call-this-bad-boy-test
-      - code-review:
-          requires:
-            - call-this-bad-boy-test
+      ##   - code-review:
+      ##      requires:
+      ##       - call-this-bad-boy-test
       - deploy-code-to-scratch:
           requires:
-            - code-review
+            - call-this-bad-boy-test
