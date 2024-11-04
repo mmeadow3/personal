@@ -57,15 +57,29 @@ jobs:
           command: . build/run_sfdx_scanner.sh
       - store_artifacts:
           path: sfdxScannerAnalysis.csv
-  deploy:
+  deploy-code-to-scratch:
     # This is an example deploy job, not actually used by the workflow
     docker:
-      - image: circleci/node:latest
+      - image: cimg/node:lts
     steps:
-      # Replace this with steps to deploy to users
+      - checkout
+      - restore_cache:
+          keys:
+            - dependency-cache-{{ checksum "package.json" }}
+            - dependency-cache-
       - run:
-          name: deploy
-          command: "#e.g. ./deploy.sh"
+          name: "Install Dependencies"
+          command: . build/testinstall.sh
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - run:
+          name: Login to Org
+          command: . build/login_to_org.sh
+      - run:
+          name: Deploy to Org
+          command: . build/deploy_code.sh
 workflows:
   run-this-beast:
     jobs:
@@ -73,6 +87,6 @@ workflows:
       - code-review:
           requires:
             - call-this-bad-boy-test
-    # - deploy:
-    #     requires:
-    #       - test-node
+      - deploy-code-to-scratch:
+          requires:
+            - code-review
