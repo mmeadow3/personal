@@ -12,7 +12,7 @@ echo $CERT_KEY | base64 -di > keys/server.key
 
 echo "Authenticating org"
 ##sf org login jwt --client-id $SANDBOX_APP_KEY --jwt-key-file keys/server.key  --username test-sjnuadalsoqa@example.com --alias MyScratchOrg
-sf login org jwt --client-id $APP_KEY --jwt-key-file keys/server.key --username test-sjnuadalsoqa@example.com --alias MyScratchOrg
+sf login org jwt --client-id $SANDBOX_APP_KEY --jwt-key-file keys/server.key --username test-sjnuadalsoqa@example.com --alias MyScratchOrg
 
 
 echo "Deploying code to org"
