@@ -6,7 +6,7 @@ sf project convert mdapi --root-dir force-app --output-dir deploy_code
 
 echo "Logging into to our Deployment Org Sandbox Salesforce Org"
 mkdir keys
-echo $SANDBOX_CERT_KEY | base64 -di > keys/server.key 
+echo $DEPLOY_CERT_KEY | base64 -di > keys/server.key    #this cert key has to match the one you upload when generating from openSSL
 
 echo "Authenticating org"
 ####sfdx force:auth:jwt:grant --clientid $APP_KEY --jwtkeyfile keys/server.key --username $SF_USERNAME --setdefaultdevhubusername -a DevHub
