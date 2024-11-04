@@ -13,7 +13,7 @@ echo "Authenticating org"
 sfdx force:auth:jwt:grant --clientid $SANDBOX_APP_KEY --jwtkeyfile keys/server.key --username $SANDBOX_USERNAME --setdefaultdevhubusername -a mikesPeronalOrg
 # Create a new scratch org
 
-sfdx force:org:create -f config/project-scratch-def.json  
+sf org create scratch --definition-file config/project-scratch-def.json --alias MyScratchOrg --set-default
 
 
 
