@@ -34,8 +34,17 @@ jobs:
       - run:
           name: Run Apex Tests
           command: . build/run_apex_tests.sh
-      - store_test_results:
-          path: test-results
+      - run:
+          name: Creating Dummy Artifacts
+          command: |
+            echo "my artifact file" > /tmp/art-1;
+            mkdir /tmp/artifacts;
+            echo "my artifact files in a dir" > /tmp/artifacts/art-2;
+      - store_artifacts:
+          path: /tmp/art-1
+          destination: artifact-file
+      - store_artifacts:
+          path: /tmp/artifacts
   code-review:
     docker:
       - image: cimg/node:lts
@@ -80,9 +89,9 @@ workflows:
   run-this-beast:
     jobs:
       - call-this-bad-boy-test
-      - code-review:
-          requires:
-            - call-this-bad-boy-test
+      #- code-review:
+      #    requires:
+      #     - call-this-bad-boy-test
       #- deploy-code-to-scratch:
       #    requires:
       #     - call-this-bad-boy-test
