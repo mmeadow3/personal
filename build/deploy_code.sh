@@ -5,8 +5,15 @@ echo "Coverting source to metadata format"
 sf project convert mdapi --root-dir force-app --output-dir deploy_code
 
 
+echo "Logging into Salesforce Org"
+mkdir keys
+echo $CERT_KEY | base64 -di > keys/server.key
+
+
 echo "Authenticating org"
-sf org login jwt --client-id $SANDBOX_APP_KEY --jwt-key-file keys/server.key  --username test-sjnuadalsoqa@example.com --alias MyScratchOrg
+##sf org login jwt --client-id $SANDBOX_APP_KEY --jwt-key-file keys/server.key  --username test-sjnuadalsoqa@example.com --alias MyScratchOrg
+sf login org jwt --client-id $APP_KEY --jwt-key-file keys/server.key --username test-sjnuadalsoqa@example.com --alias MyScratchOrg
+
 
 echo "Deploying code to org"
 ##sfdx force:mdapi:deploy -u mikesPeronalOrg -d deploy_code/ -w -1 -l RunLocalTests
