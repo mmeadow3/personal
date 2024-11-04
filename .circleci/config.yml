@@ -75,9 +75,6 @@ jobs:
           paths:
             - node_modules
       - run:
-          name: Login to Org
-          command: . build/login_to_org.sh
-      - run:
           name: Deploy to Org
           command: . build/deploy_code.sh
 workflows:
