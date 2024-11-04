@@ -32,8 +32,8 @@ jobs:
           name: Log into our Sandbox Org
           command: . build/login_to_sandbox.sh
       - run:
-          name: Run Apex Tests
-          command: . build/run_apex_tests.sh
+          name: Deploy to Source Org And Run Apex Tests
+          command: . build/run_apex_tests.sh # This is where our code is being deployed to current org
       - store_artifacts:
           path: test-results
           destination: apex-test-results
@@ -59,7 +59,7 @@ jobs:
       - store_artifacts:
           path: sfdxScannerAnalysis.csv
           destination: scannerRestults
-  deploy-code-to-scratch:
+  deploy-code-to-other-dev-org:
     docker:
       - image: cimg/node:lts
     steps:
@@ -75,9 +75,9 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - node_modules
-      # - run:
-      #     name: Deploy to Org
-      #     command: . build/deploy_code.sh
+      - run:
+          name: Deploy to Org
+          command: . build/deploy_code.sh
 workflows:
   run-this-beast:
     jobs:
@@ -85,6 +85,6 @@ workflows:
       - code-review:
           requires:
             - call-this-bad-boy-test
-      #- deploy-code-to-scratch:
-      #    requires:
-      #     - call-this-bad-boy-test
+      - deploy-code-to-other-dev-org:
+          requires:
+            - code-review

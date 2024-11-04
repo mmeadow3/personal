@@ -4,26 +4,13 @@ echo "Coverting source to metadata format"
 
 sf project convert mdapi --root-dir force-app --output-dir deploy_code
 
-echo "Logging into Sandbox Salesforce Org"
-mkdir keys  # make a keys Directory in the Cloud 
-#to make a local key, switch to WSL by typing "bash" then you can type openssl and the options will pop up
-echo $SANDBOX_CERT_KEY | base64 -di > keys/server.key   
+echo "Logging into to our Deployment Org Sandbox Salesforce Org"
+mkdir keys
+echo $CERT_KEY | base64 -di > keys/server.key
 
 echo "Authenticating org"
-sfdx force:auth:jwt:grant --clientid $SANDBOX_APP_KEY --jwtkeyfile keys/server.key --username $SANDBOX_USERNAME --setdefaultdevhubusername -a mikesPeronalOrg
-# Create a new scratch org
+####sfdx force:auth:jwt:grant --clientid $APP_KEY --jwtkeyfile keys/server.key --username $SF_USERNAME --setdefaultdevhubusername -a DevHub
+sf login org jwt --client-id $DEPLOY_APP_KEY --jwt-key-file keys/server.key --username $DEPLOY_USERNAME --alias deploymentOrg
 
-sf org create scratch --definition-file config/project-scratch-def.json --alias MyScratchOrg --set-default
-
-
-
-# Authenticate to the newly created scratch org
-
-sfdx force:auth:web:login -a MyScratchOrg
-
-
-
-#deploy to scratch org
-sf project deploy start --target-org MyScratchOrg --source-dir force-app
-
-##then try to deploy test data
+echo "Starting Deployment"
+sf project deploy start  --source-dir deploy_code --target-org deploymentOrg
