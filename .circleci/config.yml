@@ -57,8 +57,8 @@ jobs:
           name: SFDX Scanner Analysis
           command: . build/run_sfdx_scanner.sh
       - store_artifacts:
-          path: sfdxScannerAnalysis.csv
-          destination: scannerRestults
+          path: sfdxScannerAnalysis
+          destination: scannerRestults.csv
   deploy-code-to-scratch:
     docker:
       - image: cimg/node:lts
