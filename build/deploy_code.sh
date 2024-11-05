@@ -16,4 +16,4 @@ echo "Starting Deployment"
 ##sf project deploy start  --source-dir deploy_code --target-org deploymentOrg   
 ## This works I just have alot of dependencies that need to be work out
 ## instead were just going to deploy a class
-sf project deploy start --manifest manifest/deploymentpackage.xml    ### creating a manifest of specific fields to deploy - just 2 apex for testing 
+sf project deploy start --manifest manifest/deploymentpackage.xml --target-org deploymentOrg   ### creating a manifest of specific fields to deploy - just 2 apex for testing 
