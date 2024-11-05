@@ -47,3 +47,6 @@ $RECYCLE.BIN/
 #local keys
 server.crt
 certKeyLocal.txt
+certKeyLocalDeploy.txt
+server.key
+/localbuild
