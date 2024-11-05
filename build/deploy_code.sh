@@ -13,4 +13,7 @@ echo "Authenticating org"
 sf login org jwt --client-id $DEPLOY_APP_KEY --jwt-key-file keys/server.key --username $DEPLOY_USERNAME --alias deploymentOrg
 
 echo "Starting Deployment"
-sf project deploy start  --source-dir deploy_code --target-org deploymentOrg
+##sf project deploy start  --source-dir deploy_code --target-org deploymentOrg   
+## This works I just have alot of dependencies that need to be work out
+## instead were just going to deploy a class
+sf project deploy start --manifest path/to/package.xml    ### creating a manifest of specific fiels to deploy
