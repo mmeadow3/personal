@@ -17,3 +17,6 @@ echo "Starting Deployment"
 ## This works I just have alot of dependencies that need to be work out
 ## instead were just going to deploy a class
 sf project deploy start --manifest manifest/deploymentpackage.xml --target-org deploymentOrg   ### creating a manifest of specific fields to deploy - just 2 apex for testing 
+
+#Results can be seens on the other Dev Org : https://waypath-dev-ed.develop.lightning.force.com/lightning/setup/DeployStatus/home
+## reminder to upload the Cert to the Connected App, and save the key it generates to upload as text for the JWT => DEPLOY_CERT_KEY
