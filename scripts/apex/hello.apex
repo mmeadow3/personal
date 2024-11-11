@@ -4,7 +4,4 @@
 //     SFDX: Execute Anonymous Apex with Currently Selected Text
 // You can also execute the entire file by running the command:
 //     SFDX: Execute Anonymous Apex with Editor Contents
-
-
-WeatherStation ws = new WeatherStation();
-ws.setMeasurements(90, 80, 70);
+CallAWSLambda.callLambdaFunction(null);

@@ -1,21 +1,20 @@
 public with sharing class CallAWSLambda {
   public static String callLambdaFunction(String jsonData) {
     // Endpoint of your API Gateway that triggers the Lambda function
-    List<API__mdt> metadataRecords = [
-      SELECT DeveloperName, API_Endpoint__c
-      FROM API__mdt
-    ];
-    String endpointUrl = metadataRecords[0].API_Endpoint__c;
+    // List<API__mdt> metadataRecords = [
+    //   SELECT DeveloperName, API_Endpoint__c
+    //   FROM API__mdt
+    // ];
+    // String endpointUrl = metadataRecords[0].API_Endpoint__c;
 
     // Initialize HTTP request and response objects
     Http http = new Http();
     HttpRequest request = new HttpRequest();
-    request.setEndpoint(endpointUrl);
+    // request.setEndpoint(endpointUrl);
+    request.setEndpoint('callout:AWS_API_Gateway/lambda'); /// Got this working with named credentials - the part that wasnt working was the Service name had to be =  execute-api not API Gateway
     request.setMethod('GET');
 
-    // Set headers if API Key is needed
-    // request.setHeader('Content-Type', 'application/json');
-    // request.setHeader('x-api-key', 'your-api-key'); // Optional, only if API key is required
+    System.debug(request);
 
     // Set the request body (JSON format)
     //request.setBody(jsonData);
