@@ -7,7 +7,10 @@ public with sharing class CallAWSLambda {
     // ];
     // String endpointUrl = metadataRecords[0].API_Endpoint__c;
 
-    // Initialize HTTP request and response objects
+    ///// now we used named credentials
+    // Works with AWS Signature Version 4 and IAM (built-in) in the AWS console
+    //// had to make new User in AWS for the role, added their credentials to the Principals section of the Named Credential
+    ///
     Http http = new Http();
     HttpRequest request = new HttpRequest();
     // request.setEndpoint(endpointUrl);
