@@ -1,0 +1,5 @@
+/// reminder that you can lick on the second icon in the top right and have a SOQL Editor to run this
+//// or highlight the query and run SFDX: Execute SOQL Query with Currently Selected Text
+
+SELECT Id, CreatedDate
+  FROM Contact

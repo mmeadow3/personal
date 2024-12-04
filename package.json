@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "description": "Salesforce App",
   "scripts": {
-    "lint": "eslint **/{aura,lwc}/**/*.js",
+    "lint": "npm run lint:lwc",
+    "lint:lwc": "eslint force-app/main/default/lwc",
     "test": "npm run test:unit",
     "test:unit": "sfdx-lwc-jest",
     "test:unit:watch": "sfdx-lwc-jest --watch",
@@ -18,11 +19,11 @@
   "devDependencies": {
     "@lwc/eslint-plugin-lwc": "^1.1.2",
     "@prettier/plugin-xml": "^3.2.2",
-    "@salesforce/eslint-config-lwc": "^3.2.3",
+    "@salesforce/eslint-config-lwc": "^3.6.0",
     "@salesforce/eslint-plugin-aura": "^2.0.0",
     "@salesforce/eslint-plugin-lightning": "^1.0.0",
     "@salesforce/sfdx-lwc-jest": "^5.1.0",
-    "eslint": "^8.0.0",
+    "eslint": "^8.57.1",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jest": "^28.8.1",
     "husky": "^9.1.5",
